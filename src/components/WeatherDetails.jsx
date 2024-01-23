@@ -1,5 +1,5 @@
 export default function WeatherDetails(props) {
-  const { name, sys } = props;
+  const { main, name, sys, weather, wind } = props;
 
   return (
     <div className="flex items-center gap-2 p-2 relative bg-gray-300 rounded-md shadow-xl min-w-[360px]">
@@ -7,11 +7,11 @@ export default function WeatherDetails(props) {
         <h2>
           <span className="font-bold text-xl">{name}</span>, {sys.country}{" "}
           <br />
-          {"ADD_WEATHER_DESCRIPTION_HERE"}
+          {weather[0].description}
         </h2>
         <div>
           <p>
-            <span className="font-bold text-3xl">{"ADD_TEMP_HERE"} °C</span>
+            <span className="font-bold text-3xl">{main.temp} °C</span>
           </p>
         </div>
       </div>
@@ -19,21 +19,21 @@ export default function WeatherDetails(props) {
         {/* Here the weather icon has to be added */}
         <img
           className="rounded-lg"
-          src={"ADD_IMG_SRC_HERE"}
+          src={`https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
           alt="Weather Icon"
         />
         <div className="flex flex-col items-center text-sm">
           <p>
             <span className="italic">Feels Like</span> :{" "}
-            <span className="font-bold">{"ADD_FEELS_LIKE_HERE"} °C</span>{" "}
+            <span className="font-bold">{main.feels_like} °C</span>{" "}
           </p>
           <p>
             <span className="italic">Humidity</span> :{" "}
-            <span className="font-bold">{"ADD_HUMIDITY_HERE"}%</span>{" "}
+            <span className="font-bold">{main.humidity}%</span>{" "}
           </p>
           <p>
             <span className="italic">Wind Speed</span> :{" "}
-            <span className="font-bold">{"ADD_WIND_SPEED_LIKE_HERE"} m/s</span>{" "}
+            <span className="font-bold">{wind.speed} m/s</span>{" "}
           </p>
         </div>
       </div>
