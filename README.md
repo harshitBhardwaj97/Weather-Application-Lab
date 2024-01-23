@@ -1,75 +1,33 @@
-## Part-1
+## Part-2
 
-Here I have provided you the starting code for our Weather Application Project.
+Here I have provided the code to verify that our API is working fine or not. Axios has been added as the dependency to make the API call and weather service has also been written which is responsible for making the call.
 
-It has been created [Vite.](https://vitejs.dev/guide/) You can read the docs if you are not sure how to setup a React project with Vite.
-
-In this lab, your task is to configure Tailwind CSS in the existing project.
-
-If you check out the [Official Documentation](https://tailwindcss.com/docs/guides/vite) of Tailwind CSS, for how to configure it in a Vite project, there you will find a bunch of instructions, and those are what we are gonna follow.
+Your task is just to get the API_KEY by registering for Open Weather Map API and adding it in the .env file VITE_APP_API_KEY.
 
 ### Instructions
 
-- Since we already are having an existing Vite project, so we will skip step 1 of creating a vite project and will be performing step 2 directly. In the terminal below, while in root directory only, execute the following commands -
+- Visit [Open Weather Map Registration Page](https://home.openweathermap.org/users/sign_up) and register yourself. You need to be registered to get the API_KEY that will be required for making call to Open Weather Map Service.
+
+- Once registered successfully, [Login](https://home.openweathermap.org/users/sign_up) using your credentials, and visit the [API Keys](https://home.openweathermap.org/api_keys) section. There you will find the API_KEY required.
+
+- Copy your API_KEY and in .env file provided. Your .env file should look like -
 
 ```
-
-npm install -D tailwindcss postcss autoprefixer
-
-npx tailwindcss init -p
-
+VITE_APP_API_KEY=${API_KEY}
 ```
 
-These commands will add tailwind dependencies as a dev dependency in our project, and add two files - tailwind.config.js and postcss.config.js.
+where API_KEY is your key that you copied.
 
-- Once you have successfully executed these commands, then in the tailwind.config.js file, copy and paste the following code, and save it -
+- Once this is done, click on the CHECK_API button. If everything is configured successfully, then you should get SUCCESS_MESSAGE, and also the actual response in console.
 
-```
+## Few important points
 
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+- Data like API_KEY is sensitive information, so we never share it with anyone and make use of .env file to store such information, which is never uploaded on Github or wherever your remote repository lies. So you will always find .env file added in .gitignore.
 
-```
+  In this lab for explanation purpose, it has not been added in .gitignore, so that you have access to the .env file and can add API_KEY there and also learn how to use any environment variable in VITE application. You can study more about it from [here.](https://vitejs.dev/guide/env-and-mode)
 
-If you notice, here we are just changing the **content** section of our tailwind.config.js file, and in that array **passing the path values where our tailwind styling should be applied.**
+- For this part the request has been hardcoded because the purpose of this part is to make sure you have got the API_KEY configured and its working properly. In next part we will actually be taking user input and making calls to the Open Weather Map service based on that.
 
-- In the index.css file, remove the existing code and add the following code and save -
+- In .env file, don't make any changes to the name of our environment variable. All environment variables in Vite Application are required to be prefixed with VITE\_ . There you just need to add your API_KEY.
 
-```
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-- With this now we are ready to start using Tailwind CSS in our project. To check out that tailwind has been properly configured in our project, go to App.jsx file, there you will find a single div with id **app-container**. On that div apply the following classes -
-
-```
-
-className="max-w-7xl mx-auto h-screen grid place-content-center bg-gray-200"
-
-```
-
-- This will place the text in the center of screen, give the height of 100vh and apply background color as light-gray. Read about rest of the classes yourself and understand what are they doing.
-
-## Important NOTE, Read carefully
-
-Initially when the lab is started, the server won't be running. Its intentional and requires you to complete all the steps first. In case you try to run tests before starting the server, the 4th test will always fail because it requires server to be running on default port (1337). So optimal way of completing this lab is to perform Steps 1 till 3, and verify they are working. Then add the required classes on div#app-container and then start the server by executing - 
-
-```
-npm run dev
-```
-
-### About Tailwind CSS
-
-Instead of targetting the elements with meaningful classes / ids and then applying styling to them, tailwind allows us to apply the styles directly on the elements, which saves a lot of time switching to and fro between css and html/js files, and thereby enhancing the productivity and overall developer experience.
-
-Hence tailwind CSS is a way to quickly and efficiently add styling to our applications, and is not difficult to learn if your fundamentals of CSS are clear. (Having intuitive classNames gives us an idea what styling would be applied).
+- This part won't have any solution added, because its quite straightforward and requires you to just register and get the API_KEY. In order to pass this lab you need to have correct configuration done, there is only a single test written for it.
