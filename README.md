@@ -60,6 +60,14 @@ className="max-w-7xl mx-auto h-screen grid place-content-center bg-gray-200"
 
 - This will place the text in the center of screen, give the height of 100vh and apply background color as light-gray. Read about rest of the classes yourself and understand what are they doing.
 
+## Important NOTE, Read carefully
+
+Initially when the lab is started, the server won't be running. Its intentional and requires you to complete all the steps first. In case you try to run tests before starting the server, the 4th test will always fail because it requires server to be running on default port (1337). So optimal way of completing this lab is to perform Steps 1 till 3, and verify they are working. Then add the required classes on div#app-container and then start the server by executing - 
+
+```
+npm run dev
+```
+
 ### About Tailwind CSS
 
 Instead of targetting the elements with meaningful classes / ids and then applying styling to them, tailwind allows us to apply the styles directly on the elements, which saves a lot of time switching to and fro between css and html/js files, and thereby enhancing the productivity and overall developer experience.
